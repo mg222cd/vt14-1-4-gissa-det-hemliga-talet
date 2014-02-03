@@ -1,0 +1,36 @@
+﻿body {
+}
+
+#container {
+    margin-left:40px;
+}
+
+#HeaderDiv {
+    width:500px;
+    border-left-color:#000000;
+    border-left-style:groove;
+}
+
+#HeaderDiv h1, p {
+    padding-left:7px;
+}
+
+#HeaderText{
+    font-style:italic;
+}
+
+#GreyDiv {
+    width:503px;
+    height:25px;
+    background-color:rgba(128, 128, 128, 0.08);
+    margin-bottom:10px;
+}
+
+.TextField {
+    width:30px;
+}
+
+
+
+
+
