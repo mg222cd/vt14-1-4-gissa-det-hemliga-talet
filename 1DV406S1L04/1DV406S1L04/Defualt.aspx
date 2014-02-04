@@ -42,9 +42,8 @@
                 <%-- Ny gissning --%>
                 <asp:PlaceHolder ID="ResultPlaceHolder" runat="server" Visible="false">
                     <asp:Literal ID="ResultLiteral" runat="server">Du har inga gissningar kvar. Det hemliga talet var {o}.</asp:Literal>
-                    <asp:Button ID="NewButton" runat="server" CssClass="NewButton"
-                         Text="Slumpa nytt hemligt tal" />
                 </asp:PlaceHolder>
+                <asp:Button ID="NewButton" runat="server" CssClass="NewButton" Text="Slumpa nytt hemligt tal" OnClick="NewButton_Click" />
                 </div>
             </div>
         </form>

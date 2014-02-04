@@ -55,8 +55,7 @@ namespace _1DV406S1L04
                     SendButton.Enabled = false;
                     ResultPlaceHolder.Visible = true;
                     ResultLiteral.Text = String.Format("Det hemliga numret var {0}", theGuess.Number);
-                    NewButton.Visible = true;
-                    NewButton.ID = "SendButton";
+                    NewButton.Visible = true;                    
                 }
                 else if (result == Outcome.High)
                 {
@@ -85,23 +84,23 @@ namespace _1DV406S1L04
                     ResultPlaceHolder.Visible = true;
                     ResultLiteral.Text = String.Format(ResultLiteral.Text, theGuess.Number);
                     NewButton.Visible = true;
-                    NewButton.ID = "SendButton";
                 }
                 else
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
                     ResultPlaceHolder.Visible = true;
-                    NewButton.ID = "SendButton";
                     ResultLiteral.Text = "Beklagar, gissningen gick inte att hantera. Försök igen.";
-
                 }
-
-
-
-                
             }
         }
+
+        protected void NewButton_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Defualt.aspx");
+        }
+
 
 
 
