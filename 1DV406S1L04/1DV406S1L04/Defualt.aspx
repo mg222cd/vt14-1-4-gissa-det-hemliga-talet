@@ -20,8 +20,10 @@
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" HeaderText="Fel i formuläret:" />
                     <%-- Inmatning --%>
                     <div id="InputDiv">
+                        <asp:PlaceHolder ID="InputPlaceHolder" runat="server">
                         <asp:Label ID="InfoLabel" runat="server" Text="Ange ett tal mellan 1 och 100:"></asp:Label>
                         <asp:TextBox ID="TextBox" runat="server" CssClass="TextField" TextMode="SingleLine"></asp:TextBox>
+                        </asp:PlaceHolder>
                     <%-- Validering --%>
                         <%-- Required Field --%>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ErrorMessage="Fältet får inte lämnas tomt." 
@@ -30,18 +32,20 @@
                         <asp:RangeValidator ID="RangeValidator" runat="server" ErrorMessage="Ange ett heltal mellan 1-100" ControlToValidate="TextBox" 
                             Text="*" ForeColor="Red" Type="Integer" MaximumValue="100" MinimumValue="1"></asp:RangeValidator>
                     <%-- Knapp --%>
-                        <asp:Button ID="SendButton" runat="server" Text="Skicka gissning" />
+                        <asp:Button ID="SendButton" runat="server" Text="Skicka gissning" OnClick="SendButton_Click" />
                     </div>
                 <%-- Gissningshistorik --%>
                 <asp:PlaceHolder ID="GuessesPlaceHolder" runat="server" Visible="false">
                     <asp:Literal ID="GuessesLiteral" runat="server">{0}</asp:Literal>
                 </asp:PlaceHolder>
+                <div id="NewGuessDiv">
                 <%-- Ny gissning --%>
                 <asp:PlaceHolder ID="ResultPlaceHolder" runat="server" Visible="false">
                     <asp:Literal ID="ResultLiteral" runat="server">Du har inga gissningar kvar. Det hemliga talet var {o}.</asp:Literal>
-                    <asp:Button ID="NewButton" runat="server" Text="Slumpa nytt hemligt tal" />
+                    <asp:Button ID="NewButton" runat="server" CssClass="NewButton"
+                         Text="Slumpa nytt hemligt tal" />
                 </asp:PlaceHolder>
-
+                </div>
             </div>
         </form>
     </body>

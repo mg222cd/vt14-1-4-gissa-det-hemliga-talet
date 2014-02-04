@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 
@@ -65,6 +66,14 @@ namespace _1DV406S1L04.Model
             private set
             {
                 int? _number = value as int?;
+            }
+        }
+        public ReadOnlyCollection<int> PreviousGuess
+        {
+            get
+            {
+                ReadOnlyCollection<int> prevGuess = new ReadOnlyCollection<int>(_previousGuess);
+                return prevGuess;
             }
         }
 

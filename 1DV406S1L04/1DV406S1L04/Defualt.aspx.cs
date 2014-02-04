@@ -20,9 +20,57 @@ namespace _1DV406S1L04
                 //säkerhetskontroll att sessionsvariablen inte är null
                 if (Session["theGuess"] != null)
                 {
-                    //lagarar i variabel.
+                    //sessions-objekt för SecretNumber-objekt
                     var theGuess = Session["theGuess"] as SecretNumber;
                 }
+            }
+        }
+
+        protected void SendButton_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                //sessionsobjekt för SecretNumber-objekt
+                var theGuess = Session["theGuess"] as SecretNumber;
+
+                //kontrollera resultatet av gissningen:
+                Outcome result = theGuess.MakeGuess(int.Parse(TextBox.Text));
+
+                //hämta tidigare gissningar:
+                var writePrevious = "";
+                foreach (var item in theGuess.PreviousGuess)
+                {
+                    writePrevious += string.Format("[{0}]", item);
+                }
+
+                //hanteing för vad som ska skrivas ut beroende på resultatet av gissningen:
+                if (result == Outcome.Correct)
+                {
+                    GuessesPlaceHolder.Visible = true;
+                    GuessesLiteral.Text = writePrevious;
+                    ResultPlaceHolder.Visible = true;
+                    ResultLiteral.Text = "Grattis! Rätt gissat!"; //TODO, fixa antal försök
+                    NewButton.Visible = true;
+                    TextBox.Enabled = false;
+                    SendButton.Enabled = false;
+                }
+                else if (result == Outcome.High)
+                {
+                    GuessesPlaceHolder.Visible = true;
+                    GuessesLiteral.Text = writePrevious;
+                    GuessesLiteral.Text += "För högt";
+                }
+                else if (result == Outcome.Low)
+                {
+                    GuessesPlaceHolder.Visible = true;
+                    GuessesLiteral.Text = writePrevious;
+                    GuessesLiteral.Text += "För lågt";
+                }
+
+
+
+
+                
             }
         }
 

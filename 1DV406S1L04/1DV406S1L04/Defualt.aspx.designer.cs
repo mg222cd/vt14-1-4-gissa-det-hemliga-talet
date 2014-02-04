@@ -31,6 +31,15 @@ namespace _1DV406S1L04 {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
         
         /// <summary>
+        /// InputPlaceHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder InputPlaceHolder;
+        
+        /// <summary>
         /// InfoLabel control.
         /// </summary>
         /// <remarks>
