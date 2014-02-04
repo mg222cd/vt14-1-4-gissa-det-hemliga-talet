@@ -87,7 +87,15 @@ namespace _1DV406S1L04
                     NewButton.Visible = true;
                     NewButton.ID = "SendButton";
                 }
+                else
+                {
+                    GuessesPlaceHolder.Visible = true;
+                    GuessesLiteral.Text = writePrevious;
+                    ResultPlaceHolder.Visible = true;
+                    NewButton.ID = "SendButton";
+                    ResultLiteral.Text = "Beklagar, gissningen gick inte att hantera. Försök igen.";
 
+                }
 
 
 
