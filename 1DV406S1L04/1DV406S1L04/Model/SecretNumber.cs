@@ -99,7 +99,7 @@ namespace _1DV406S1L04.Model
                     {
                         return Outcome.Correct;
                     }
-                    else if (Outcome == Outcome.NoMoreGuesses)
+                    else
                     {
                         return Outcome.NoMoreGuesses;
                     }
@@ -133,7 +133,13 @@ namespace _1DV406S1L04.Model
                         }
                         //lägger till gissningen:
                         _previousGuess.Add(guess);
+                        //kontrollerar om det var sista försöket:
+                        if (Count == MaxNumberOfGuesses)
+                        {
+                            Outcome = Outcome.NoMoreGuesses;
+                        }
                     }
+
                 }
             }
             else

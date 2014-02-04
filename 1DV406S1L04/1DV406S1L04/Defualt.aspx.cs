@@ -40,7 +40,7 @@ namespace _1DV406S1L04
                 var writePrevious = "";
                 foreach (var item in theGuess.PreviousGuess)
                 {
-                    writePrevious += string.Format("[{0}]", item);
+                    writePrevious += string.Format("[{0}] ", item);
                 }
 
                 //hanteing för vad som ska skrivas ut beroende på resultatet av gissningen:
@@ -48,8 +48,8 @@ namespace _1DV406S1L04
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
+                    GuessesLiteral.Text += String.Format("Grattis! Du klarade det på {0} försök!", theGuess.Count);
                     ResultPlaceHolder.Visible = true;
-                    ResultLiteral.Text = "Grattis! Rätt gissat!";
                     NewButton.Visible = true;
                     TextBox.Enabled = false;
                     SendButton.Enabled = false;
@@ -61,28 +61,29 @@ namespace _1DV406S1L04
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
-                    GuessesLiteral.Text += "För högt.";
+                    GuessesLiteral.Text += " För högt.";
                 }
                 else if (result == Outcome.Low)
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
-                    GuessesLiteral.Text += "För lågt.";
+                    GuessesLiteral.Text += " För lågt.";
                 }
                 else if (result == Outcome.PreviousGuesses)
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
-                    GuessesLiteral.Text += "Du har redan gissat på talet, försök igen.";
+                    GuessesLiteral.Text += " Du har redan gissat på talet, försök igen.";
                 }
                 else if (result == Outcome.NoMoreGuesses)
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
+                    GuessesLiteral.Text += String.Format("Du har inga gissningar kvar.");
                     TextBox.Enabled = false;
                     SendButton.Enabled = false;
                     ResultPlaceHolder.Visible = true;
-                    ResultLiteral.Text = String.Format(ResultLiteral.Text, theGuess.Number);
+                    ResultLiteral.Text = String.Format("Det hemliga numret var {0}", theGuess.Number);
                     NewButton.Visible = true;
                 }
                 else
@@ -90,7 +91,10 @@ namespace _1DV406S1L04
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
                     ResultPlaceHolder.Visible = true;
+                    TextBox.Enabled = false;
+                    SendButton.Enabled = false;
                     ResultLiteral.Text = "Beklagar, gissningen gick inte att hantera. Försök igen.";
+                    NewButton.Visible = true;
                 }
             }
         }

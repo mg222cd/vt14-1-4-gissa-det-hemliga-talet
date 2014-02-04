@@ -6,7 +6,9 @@
     <head runat="server">
         <title>Gissa det hemliga talet</title>
         <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <script src="Scripts/JScript.js"></script>
     </head>
+
     <body>
         <form id="form1" runat="server"> 
             <div id="container">
@@ -21,7 +23,7 @@
                     <%-- Inmatning --%>
                     <div id="InputDiv">
                         <asp:PlaceHolder ID="InputPlaceHolder" runat="server">
-                        <asp:Label ID="InfoLabel" runat="server" Text="Ange ett tal mellan 1 och 100:"></asp:Label>
+                        <asp:Label ID="InfoLabel" runat="server" Text="Ange ett tal mellan 1 och 100: "></asp:Label>
                         <asp:TextBox ID="TextBox" runat="server" CssClass="TextField" TextMode="SingleLine"></asp:TextBox>
                         </asp:PlaceHolder>
                     <%-- Validering --%>
@@ -43,9 +45,10 @@
                 <asp:PlaceHolder ID="ResultPlaceHolder" runat="server" Visible="false">
                     <asp:Literal ID="ResultLiteral" runat="server">Du har inga gissningar kvar. Det hemliga talet var {o}.</asp:Literal>
                 </asp:PlaceHolder>
-                <asp:Button ID="NewButton" runat="server" CssClass="NewButton" Text="Slumpa nytt hemligt tal" OnClick="NewButton_Click" />
+                <asp:Button ID="NewButton" runat="server" CssClass="NewButton" Visible="false" Text="Slumpa nytt hemligt tal" OnClick="NewButton_Click" />
                 </div>
             </div>
         </form>
+
     </body>
     </html>
