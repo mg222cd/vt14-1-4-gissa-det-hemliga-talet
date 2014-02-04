@@ -49,22 +49,43 @@ namespace _1DV406S1L04
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
                     ResultPlaceHolder.Visible = true;
-                    ResultLiteral.Text = "Grattis! Rätt gissat!"; //TODO, fixa antal försök
+                    ResultLiteral.Text = "Grattis! Rätt gissat!";
                     NewButton.Visible = true;
                     TextBox.Enabled = false;
                     SendButton.Enabled = false;
+                    ResultPlaceHolder.Visible = true;
+                    ResultLiteral.Text = String.Format("Det hemliga numret var {0}", theGuess.Number);
+                    NewButton.Visible = true;
+                    NewButton.ID = "SendButton";
                 }
                 else if (result == Outcome.High)
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
-                    GuessesLiteral.Text += "För högt";
+                    GuessesLiteral.Text += "För högt.";
                 }
                 else if (result == Outcome.Low)
                 {
                     GuessesPlaceHolder.Visible = true;
                     GuessesLiteral.Text = writePrevious;
-                    GuessesLiteral.Text += "För lågt";
+                    GuessesLiteral.Text += "För lågt.";
+                }
+                else if (result == Outcome.PreviousGuesses)
+                {
+                    GuessesPlaceHolder.Visible = true;
+                    GuessesLiteral.Text = writePrevious;
+                    GuessesLiteral.Text += "Du har redan gissat på talet, försök igen.";
+                }
+                else if (result == Outcome.NoMoreGuesses)
+                {
+                    GuessesPlaceHolder.Visible = true;
+                    GuessesLiteral.Text = writePrevious;
+                    TextBox.Enabled = false;
+                    SendButton.Enabled = false;
+                    ResultPlaceHolder.Visible = true;
+                    ResultLiteral.Text = String.Format(ResultLiteral.Text, theGuess.Number);
+                    NewButton.Visible = true;
+                    NewButton.ID = "SendButton";
                 }
 
 
