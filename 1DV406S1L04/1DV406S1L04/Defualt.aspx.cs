@@ -12,12 +12,21 @@ namespace _1DV406S1L04
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Kontroll att det ej är Postback
+            // Kontroll att det är PageLoad och inte Postback
             if (!IsPostBack)
             {
+                //Nytt SecretNumber
                 Session["theGuess"] = new SecretNumber();
-
+                //säkerhetskontroll att sessionsvariablen inte är null
+                if (Session["theGuess"] != null)
+                {
+                    //lagarar i variabel.
+                    var theGuess = Session["theGuess"] as SecretNumber;
+                }
             }
         }
+
+
+
     }
 }
