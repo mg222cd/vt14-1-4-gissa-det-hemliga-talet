@@ -134,7 +134,7 @@ namespace _1DV406S1L04.Model
                         //lägger till gissningen:
                         _previousGuess.Add(guess);
                         //kontrollerar om det var sista försöket:
-                        if (Count == MaxNumberOfGuesses)
+                        if (Count == MaxNumberOfGuesses && guess != _number)
                         {
                             Outcome = Outcome.NoMoreGuesses;
                         }
